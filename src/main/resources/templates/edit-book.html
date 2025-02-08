@@ -1,0 +1,11 @@
+<form th:action="@{/update}" method="post">
+    <input type="hidden" th:field="*{id}" /> 
+    
+    <label>Title:</label>
+    <input type="text" th:field="*{title}" required />
+
+    <label>Author:</label>
+    <input type="text" th:field="*{author}" required />
+
+    <button type="submit">Save</button>
+</form>

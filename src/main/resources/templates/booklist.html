@@ -11,7 +11,7 @@
 <body>
     <div class="container mt-5">
         <h2 class="mb-4">Book List</h2>
-        <table>
+        <table class="tabel">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -20,20 +20,20 @@
                     <th>Publication Year</th>
                     <th>ISBN</th>
                     <th>Price</th>
-                    <th class="text-end"></th>
+                    <th class="text-end">
                 </tr>
                 </thead>
                 </tbody>
                 <tr th:each="book : ${books}">
-                    <td th:text="${book.id}">
-                    <td th:text="${book.title}">
-                    <td th:text="${book.author}">
-                    <td th:text="${book.publicationYear}">
-                    <td th:text="${book.isbn}">
-                    <td th:text="${book.price}">
-                     <th class="text-end"></th>  
+                    <td th:text="${book.id}"></td>
+                    <td th:text="${book.title}"></td>
+                    <td th:text="${book.author}"></td>
+                    <td th:text="${book.publicationYear}"></td>
+                    <td th:text="${book.isbn}"></td>
+                    <td th:text="${book.price}"></td>
+                     <th class="text-end">
                      <a th:href="@{/deletebook/{id}(id=${book.id})}">Delete</a>
-
+                     <a th:href="@{/editbook/{id}(id=${book.id})}">Edit</a>
                     </td>
                 </tr>
             </tbody>

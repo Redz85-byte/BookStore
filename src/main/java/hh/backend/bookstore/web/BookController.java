@@ -11,11 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import hh.backend.bookstore.domain.Book;
 import hh.backend.bookstore.domain.BookRepository;
 
-
-
-
-
-
 @Controller
 public class BookController {
     @Autowired
@@ -47,7 +42,18 @@ public class BookController {
     bookRepository.deleteById(id);
     return "redirect:/booklist";
    }
-   
-   
 
+   @PostMapping("/update")
+   public String updateBook(@ModelAttribute Book book) {
+       
+       bookRepository.save(book);
+       return "redirect:/booklist";  
+   }
+
+   @GetMapping("/edit/{id}")
+   public String editBook(@PathVariable("id") Long id, Model model) {
+       Book book = bookRepository.findById(id).get();
+       model.addAttribute("book", book);
+       return "edit-book";  
+   }
 }
