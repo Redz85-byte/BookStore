@@ -1,6 +1,6 @@
 package hh.backend.bookstore.web;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,15 +10,21 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import hh.backend.bookstore.domain.Book;
 import hh.backend.bookstore.domain.BookRepository;
+import hh.backend.bookstore.domain.Category;
+
+
 
 @Controller
 public class BookController {
  
+
    private BookRepository bookRepository;
+  
 
    public BookController(BookRepository bookRepository) {
     this.bookRepository = bookRepository;
-   }
+  
+   }    
 
    @GetMapping("/booklist")
    public String showBookList(Model model) {
@@ -50,4 +56,5 @@ public class BookController {
        model.addAttribute("book", book);
        return "edit-book";  
    }
+
 }
