@@ -13,10 +13,11 @@ import hh.backend.bookstore.domain.BookRepository;
 
 @Controller
 public class BookController {
-    @Autowired
+ 
    private BookRepository bookRepository;
 
    public BookController(BookRepository bookRepository) {
+    this.bookRepository = bookRepository;
    }
 
    @GetMapping("/booklist")
@@ -41,13 +42,6 @@ public class BookController {
    public String deleteBook(@PathVariable("id") Long id) {
     bookRepository.deleteById(id);
     return "redirect:/booklist";
-   }
-
-   @PostMapping("/update")
-   public String updateBook(@ModelAttribute Book book) {
-       
-       bookRepository.save(book);
-       return "redirect:/booklist";  
    }
 
    @GetMapping("/edit/{id}")
