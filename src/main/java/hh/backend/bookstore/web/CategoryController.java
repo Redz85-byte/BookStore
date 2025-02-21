@@ -11,8 +11,7 @@ import hh.backend.bookstore.domain.Category;
 import hh.backend.bookstore.domain.CategoryRepository;
 
 @Controller
-public class CategoryController {
-
+public class CategoryController {   
 
     private CategoryRepository categoryRepository;
 
@@ -20,35 +19,27 @@ public class CategoryController {
         this.categoryRepository = categoryRepository;
     }
 
-
-    // Show list of categories
     @GetMapping("/categorylist")
     public String showCategoryList(Model model) {
         model.addAttribute("categories", categoryRepository.findAll());
-        return "categorylist"; 
+        return "categorylist";
     }
 
-    // Show add category form
     @GetMapping("/addcategory")
     public String showAddCategoryForm(Model model) {
         model.addAttribute("category", new Category());
         return "addcategory";
     }
 
-    // Add a new category
     @PostMapping("/addcategory")
     public String addCategory(@ModelAttribute Category category) {
         categoryRepository.save(category);
         return "redirect:/categorylist";
     }
 
-    // Delete a category
     @GetMapping("/deletecategory/{id}")
     public String deleteCategory(@PathVariable("id") Long id) {
         categoryRepository.deleteById(id);
         return "redirect:/categorylist";
     }
 }
-
-    
-
