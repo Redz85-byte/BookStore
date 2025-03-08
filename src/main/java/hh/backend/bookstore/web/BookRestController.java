@@ -3,7 +3,6 @@ package hh.backend.bookstore.web;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,13 +18,11 @@ import hh.backend.bookstore.domain.BookRepository;
 @RequestMapping("/api/books")
 public class BookRestController {
 
-    
     private final BookRepository bookRepository;
 
     public BookRestController(BookRepository bookRepository) {
-    this.bookRepository = bookRepository;
-}
-
+        this.bookRepository = bookRepository;
+    }
 
     @GetMapping
     public List<Book> getAllBooks() {

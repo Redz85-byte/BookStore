@@ -13,6 +13,11 @@
     <div class="container mt-5">
         <h2 class="mb-4">Book List</h2>
         <table class="table table-striped">
+            <div>
+                <span>Welcome, <span th:text="${username}"></span>!</span>
+                <a href="/logout" class="btn btn-warning ms-2">Logout</a>
+            </div>
+
             <thead>
                 <tr>
                     <th>ID</th>
