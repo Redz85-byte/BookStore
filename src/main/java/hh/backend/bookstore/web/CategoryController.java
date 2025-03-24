@@ -13,7 +13,7 @@ import hh.backend.bookstore.domain.CategoryRepository;
 @Controller
 public class CategoryController {   
 
-    private CategoryRepository categoryRepository;
+    private final CategoryRepository categoryRepository;
 
     public CategoryController(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;

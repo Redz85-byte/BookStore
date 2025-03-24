@@ -15,7 +15,7 @@ import hh.backend.bookstore.domain.CategoryRepository;
 
 
 
-
+//
 @Controller
 public class BookController {
  
@@ -65,5 +65,10 @@ public class BookController {
        return "edit-book";  
    }
 
-  
+   @GetMapping("/login")
+   public String login() {
+       return "login"; 
+   }
 }
+
+  

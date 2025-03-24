@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
 </head>
 <body>
     <h2>Login</h2>
-    <form method="POST" action="/login">
+
+    <div th:if="${param.error}">
+        invalid username or password.
+    </div>
+    <form method="POST" th:action="@{/login}"></form>
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required><br><br>
         
